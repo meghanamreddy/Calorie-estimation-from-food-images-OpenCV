@@ -1,4 +1,4 @@
-# Calorie-estimation-from-food-images
+# Calorie-estimation-from-food-images-opencv
 An ML model which is trained to recognise food images, calculate volume and estimate calorie content
 May 13, 2016
 
