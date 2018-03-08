@@ -10,16 +10,24 @@ calorie_dict = { 1:52, 2:89, 3:92, 4:41, 5:360, 6:47, 7:40, 8:158, 9:18, 10:16, 
 skin_multiplier = 5*2.3
 
 def getCalorie(label, volume): #volume in cm^3
+	'''
+	Inputs are the volume of the foot item and the label of the food item
+	so that the food item can be identified uniquely.
+	The calorie content in the given volume of the food item is calculated.
+	'''
 	calorie = calorie_dict[int(label)]
 	if (volume == None):
 		return None, None, calorie
 	density = density_dict[int(label)]
 	mass = volume*density*1.0
 	calorie_tot = (calorie/100.0)*mass
-	#print "mass", mass, "calorie/100", calorie
 	return mass, calorie_tot, calorie #calorie per 100 grams
 
 def getVolume(label, area, skin_area, pix_to_cm_multiplier, fruit_contour):
+	'''
+	Using callibration techniques, the volume of the food item is calculated using the
+	area and contour of the foot item by comparing the foot item to standard geometric shapes
+	'''
 	area_fruit = (area/skin_area)*skin_multiplier #area in cm^2
 	label = int(label)
 	volume = 100
