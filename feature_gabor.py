@@ -5,6 +5,9 @@ from multiprocessing.pool import ThreadPool
 
 
 def build_filters():
+    '''
+    The Gabor kernel is calculated, which is later used to calculate the gabor features of an image
+    '''
     filters = []
     ksize = 31
     for theta in np.arange(0, np.pi, np.pi / 8):
@@ -14,8 +17,6 @@ def build_filters():
 			filters.append(kern)
     cv2.imshow('filt', filters[9])
     return filters
-
-
 	
 def process_threaded(img, filters, threadn = 8):
     accum = np.zeros_like(img)
@@ -26,13 +27,15 @@ def process_threaded(img, filters, threadn = 8):
         np.maximum(accum, fimg, accum)
     return accum
 
-
-
 def EnergySum(img):
 	mean, dev = cv2.meanStdDev(img)
 	return mean[0][0], dev[0][0]
 	
 def process(img, filters):
+    '''
+    Given an image and gabor filters,
+    the gabor features of the image are calculated.
+    '''
     feature = []
     accum = np.zeros_like(img)
     for kern in filters:
@@ -52,6 +55,10 @@ def process(img, filters):
     return feature
 
 def getTextureFeature(img):
+    '''
+    Given an image, the gabor filters are calculated and
+    then the texture features of the image are calculated
+    '''
     filters = build_filters()
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     res1 = process(gray_image, filters)
