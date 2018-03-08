@@ -3,6 +3,10 @@ import cv2
 import sys
 
 def getShapeFeatures(img):
+	'''
+	The shape features of an image are calculated
+	based on the contour of the food item using Hu moments.
+	'''
 	contours, hierarchy = cv2.findContours(img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 	moments = cv2.moments(contours[0])
 	hu = cv2.HuMoments(moments)
