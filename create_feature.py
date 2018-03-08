@@ -4,6 +4,10 @@ from feature_color import getColorFeature
 from img_seg import *
 
 def createFeature(img):
+	'''
+	Creates the feature vector of the image using the three features -
+	color, texture, and shape features
+	'''
 	feature = []
 	areaFruit, binaryImg, colourImg, areaSkin, fruitContour, pix_to_cm_multiplier = getAreaOfFood(img)
 	color = getColorFeature(colourImg)
@@ -27,6 +31,10 @@ def createFeature(img):
 	return feature, areaFruit, areaSkin, fruitContour, pix_to_cm_multiplier
 
 def readFeatureImg(filename):
+	'''
+	Reads an input image when the filename is given,
+	and creates the feature vector of the image.
+	'''
 	img = cv2.imread(filename)
 	f, farea, skinarea, fcont, pix_to_cm = createFeature(img)
 	return f, farea, skinarea, fcont, pix_to_cm
