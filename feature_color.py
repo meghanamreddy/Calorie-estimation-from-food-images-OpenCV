@@ -3,10 +3,11 @@ import math
 import sys
 import numpy as np
 
-
-#try: img_fn = sys.argv[1]
-#   except: img_fn = 'test.jpg'
 def getColorFeature(img):
+	'''
+	Computes the color feature vector of the image
+	based on HSV histogram
+	'''
 	img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 	h,s,v = cv2.split(img_hsv)
 	
