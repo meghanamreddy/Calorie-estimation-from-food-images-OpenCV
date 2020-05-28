@@ -16,3 +16,7 @@ sphere, cylinder, etc. Once we have the volume, the mass of the food item is cal
 
 The dataset can be found [here](https://www.dropbox.com/sh/3sp4gd271jwdyxr/AABk0npNIzyysjTPtRHwEbySa?dl=0). 
 
+The dataset has separate folders for every class of images. Folder All_Images contained the complete training dataset, we picked 20 images each for training from every class. If you want to train with more images for every class, pick up from the respective folder and drop them into All_Images. Please note that this will mean you have to change a bit of code in learn.py to make sure more images are trained.
+
+Test_Images is the folder we used for testing the model. Again, you can create your own images with the correct light settings and test the model.
+
