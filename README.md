@@ -14,5 +14,5 @@ for training the images using our 95 dimensional feature vector. We obtained an 
 Once the food item is identified, we were able to calculate the volume of food items by approximating it to a geometric shape like
 sphere, cylinder, etc. Once we have the volume, the mass of the food item is calculated using standard density tables. Using already available information of nutritional content of the given class of food, the total calorie content in the food image can be estimated.
 
-The dataset can be found [here](https://www.dropbox.com/s/0m2mzlctuzkc4iw/images.zip?dl=0). 
+The dataset can be found [here](https://www.dropbox.com/sh/3sp4gd271jwdyxr/AABk0npNIzyysjTPtRHwEbySa?dl=0). 
 
